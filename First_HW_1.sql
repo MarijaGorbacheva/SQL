@@ -3,7 +3,7 @@ create table employees(
 	employee_name varchar(50) not null
 );
 
-select * from employees
+select * from employees;
 
 insert into employees (employee_name) 
 values  ('person_1'),
@@ -107,9 +107,9 @@ create table employee_salary(
 id serial primary key,
 employee_id int not null unique,
 salary_id int not null
-)
+);
 
-select * from employee_salary 
+select * from employee_salary ;
 
 insert into employee_salary (employee_id, salary_id)
 values  (1, 1),
@@ -155,21 +155,21 @@ values  (1, 1),
 		(92, 9),
 		(752,10),
 		(604, 11),
-		(96, 12)
+		(96, 12);
 		
 create table roles(
 id serial primary key,
 role_name int not null unique
 );
 
-select * from roles
+select * from roles;
 
 ALTER TABLE roles
 alter column role_name type VARCHAR(30);
 
 SELECT DATA_TYPE 
 FROM INFORMATION_SCHEMA.COLUMNS
-WHERE table_name = 'roles'
+WHERE table_name = 'roles';
 
  insert into roles (role_name)
  values ('Junior_Python_developer'),
@@ -191,7 +191,7 @@ WHERE table_name = 'roles'
 		('Sales_manager'),
 		('Junior_Automation_QA_engineer'),
 		('Middle_Automation_QA_engineer'),
-		('Senior_Automation_QA_engineer')
+		('Senior_Automation_QA_engineer');
 
 		
 create table roles_employee(
@@ -278,7 +278,7 @@ values  (1, 1),
 		(67, 7),
 		(68, 8),
 		(69, 9),
-		(70, 10)
+		(70, 10);
 
 
 CREATE TABLE public.students (
