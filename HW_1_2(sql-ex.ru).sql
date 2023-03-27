@@ -47,8 +47,12 @@ except
 select maker from product
 where type = 'laptop'
 
+-- Задание: 9 
+Select distinct maker from 
+product full join pc
+on product.model = pc.model
+where product.type = 'pc' and pc.speed >= 450
 
--- 
 -- 
 -- 
 -- 
