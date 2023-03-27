@@ -6,7 +6,7 @@ where price < 500
 
 -- Задание: 2
 Select DISTINCT maker from product 
-where model in (select model from printer)
+where type = 'printer'
 
 -- Задание: 3
 Select model, ram, screen from laptop
@@ -26,7 +26,18 @@ from laptop inner join product
 on laptop.model = product.model
 where laptop.hd >= 10
 
--- 
+-- Задание: 7 
+select model, price from PC
+where model in (select model from product
+where maker = 'B' and type = 'PC')
+union
+select model, price from laptop 
+where model in (select model from product
+where maker = 'B' and type = 'laptop')
+union
+select model, price from printer
+where model in (select model from product
+where maker = 'B' and type = 'printer')
 
 
 -- 
