@@ -40,7 +40,14 @@ where model in (select model from product
 where maker = 'B' and type = 'printer')
 
 
--- 
+-- Задание: 8 
+Select maker from product
+where type = 'PC'
+except
+select maker from product
+where type = 'laptop'
+
+
 -- 
 -- 
 -- 
