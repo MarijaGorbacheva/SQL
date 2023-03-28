@@ -53,11 +53,25 @@ product full join pc
 on product.model = pc.model
 where product.type = 'pc' and pc.speed >= 450
 
+-- Задание: 10 
+Select printer.model, price from printer
+where price = (select max(price) from printer)
+
+-- Задание: 11
+Select avg(speed) from pc
+
+-- Задание: 12
+Select avg(speed) as avg_speed from laptop
+where price > 1000
+
+-- Задание: 13
+Select avg(speed) as avg_speed from pc
+where model in (select model from product
+where maker = 'A')
+
 -- 
--- 
--- 
--- 
--- 
+
+
 -- 
 -- 
 -- 
