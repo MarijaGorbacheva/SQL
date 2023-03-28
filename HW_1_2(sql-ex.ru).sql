@@ -69,7 +69,11 @@ Select avg(speed) as avg_speed from pc
 where model in (select model from product
 where maker = 'A')
 
--- 
+-- Задание: 14
+select distinct classes.class, name, country from
+classes right join ships
+on classes.class = ships.class
+where numGuns >= 10
 
 
 -- 
