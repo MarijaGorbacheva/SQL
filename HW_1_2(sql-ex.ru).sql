@@ -107,7 +107,12 @@ FROM Product INNER JOIN Laptop
 ON Product.model = Laptop.model
 GROUP BY Product.maker
 
--- 
+-- Задание: 20 - Найдите производителей, выпускающих по меньшей мере три различных модели ПК. Вывести: Maker, число моделей ПК.
+SELECT Product.maker, COUNT(model) FROM Product
+WHERE type = 'PC'
+GROUP BY maker
+HAVING COUNT(model) >= 3
+
 -- 
 -- 
 -- 
