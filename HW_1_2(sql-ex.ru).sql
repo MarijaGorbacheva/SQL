@@ -87,7 +87,11 @@ FROM PC INNER JOIN PC AS PC1
 ON  PC.speed = PC1.speed 
 AND PC.ram = PC1.ram AND PC.model != PC1.model AND PC.model > PC1.model
 
--- 
+-- Задание: 17 - Найдите модели ПК-блокнотов, скорость которых меньше скорости каждого из ПК. Вывести: type, model, speed
+SELECT DISTINCT Product.type, Laptop.model, Laptop.speed FROM Laptop, Product
+WHERE Laptop.speed < (SELECT min(speed) FROM PC) 
+AND Product.type = 'Laptop'
+
 -- 
 -- 
 -- 
