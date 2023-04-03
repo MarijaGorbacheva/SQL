@@ -92,7 +92,15 @@ SELECT DISTINCT Product.type, Laptop.model, Laptop.speed FROM Laptop, Product
 WHERE Laptop.speed < (SELECT min(speed) FROM PC) 
 AND Product.type = 'Laptop'
 
--- 
+-- Задание: 18 - Найдите производителей самых дешевых цветных принтеров. Вывести: maker, price
+SELECT DISTINCT Product.maker, Printer.price
+FROM Product INNER JOIN Printer
+ON Product.model = Printer.model AND Product.type = 'Printer'
+WHERE Printer.color = 'y' AND Printer.price = (
+    SELECT MIN(price) FROM Printer
+    WHERE color = 'y'
+    )
+
 -- 
 -- 
 -- 
