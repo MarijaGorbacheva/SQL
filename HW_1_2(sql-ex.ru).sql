@@ -134,7 +134,23 @@ SELECT maker FROM Product INNER JOIN Laptop
 ON Product.model = Laptop.model
 WHERE Product.type = 'Laptop' AND Laptop.speed >= 750
 
--- 
+-- Задание: 24 - Перечислите номера моделей любых типов, имеющих самую высокую цену по всей имеющейся в базе данных продукции.
+SELECT model FROM (
+SELECT model, price FROM PC
+UNION
+SELECT model, price FROM Laptop
+UNION
+SELECT model, price FROM Printer
+) AS Price
+WHERE Price.price IN (
+SELECT MAX(Price) FROM ( 
+SELECT Price FROM PC
+UNION
+SELECT Price FROM Laptop
+UNION
+SELECT Price FROM Printer
+) AS MAX_Price)
+
 -- 
 -- 
 -- 
