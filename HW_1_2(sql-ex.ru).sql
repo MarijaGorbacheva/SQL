@@ -119,7 +119,12 @@ FROM Product INNER JOIN PC
 ON Product.model = PC.model
 WHERE Product.type = 'PC'
 GROUP BY Product.maker
--- 
+
+-- Задание: 22 - Для каждого значения скорости ПК, превышающего 600 МГц, определите среднюю цену ПК с такой же скоростью. Вывести: speed, средняя цена.
+SELECT speed, AVG(price) FROM PC
+WHERE speed > 600
+GROUP BY speed
+
 -- 
 -- 
 -- 
