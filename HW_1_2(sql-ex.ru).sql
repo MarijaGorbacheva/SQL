@@ -187,5 +187,18 @@ WHERE maker IN (
 SELECT maker FROM Product
 WHERE type = 'printer')
 GROUP BY maker;
+
+-- Задание: 28 - Используя таблицу Product, определить количество производителей, выпускающих по одной модели.
+SELECT COUNT(maker) FROM Product
+WHERE maker IN (
+   SELECT maker FROM Product
+   GROUP BY maker
+   HAVING COUNT(model) = 1);
+
+-- 
+-- 
+-- 
+-- 
+-- 
 -- 
 -- 
