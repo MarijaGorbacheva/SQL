@@ -200,8 +200,15 @@ SELECT Income_o.point, Income_o.date, Income_o.inc, Outcome_o.out FROM Income_o 
 UNION
 SELECT Outcome_o.point, Outcome_o.date, Income_o.inc, Outcome_o.out FROM Income_o RIGHT JOIN Outcome_o ON Income_o.point = Outcome_o.point AND Income_o.date = Outcome_o.date
 
--- 
-
+-- Задание: 30 - В предположении, что приход и расход денег на каждом пункте приема фиксируется произвольное число раз (первичным ключом в таблицах является столбец code), требуется получить таблицу, в которой каждому пункту за каждую дату выполнения операций будет соответствовать одна строка. Вывод: point, date, суммарный расход пункта за день (out), суммарный приход пункта за день (inc). Отсутствующие значения считать неопределенными (NULL).
+SELECT point, date, SUM(sum_out), SUM(sum_inc)
+FROM (SELECT point, date, SUM(inc) AS sum_inc, null AS sum_out FROM Income 
+GROUP BY point, date
+UNION
+SELECT point, date, null AS sum_inc, SUM(out) AS sum_out FROM Outcome 
+GROUP BY point, date ) AS t
+GROUP BY point, date
+ORDER BY point
 
 -- 
 -- 
